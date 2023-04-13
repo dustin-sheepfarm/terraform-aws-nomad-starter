@@ -1,5 +1,5 @@
 variable "allowed_inbound_cidrs" {
-  type        = list(string)
+  type        = list("0.0.0.0/0")
   description = "List of CIDR blocks to permit inbound Nomad access from"
 }
 
