@@ -1,3 +1,7 @@
+provider "aws" {
+  region = var.region
+}
+
 module "nomad_cluster" {
   source = "./modules/nomad_cluster"
 
