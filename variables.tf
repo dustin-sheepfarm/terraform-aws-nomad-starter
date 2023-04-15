@@ -40,7 +40,7 @@ variable "nomad_version" {
 variable "enable_connect" {
   type        = bool
   description = "Whether Consul Connect should be enabled on the cluster"
-  default     = false
+  default     = true
 }
 
 variable "instance_type" {
