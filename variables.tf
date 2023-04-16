@@ -52,7 +52,7 @@ variable "instance_type" {
 }
 
 variable "key_name" {
-  default     = "dustin_ssh_key_uswest-1"
+  //default     = "dustin_ssh_key_uswest-1"
   description = "SSH key name for Nomad instances"
 }
 
