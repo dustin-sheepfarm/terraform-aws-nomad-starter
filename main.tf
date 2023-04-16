@@ -1,5 +1,6 @@
 provider "aws" {
-  region = "us-west-1"
+  //region = "us-west-1" #Original configuration
+  region = var.region
 }
 
 module "nomad_cluster" {
