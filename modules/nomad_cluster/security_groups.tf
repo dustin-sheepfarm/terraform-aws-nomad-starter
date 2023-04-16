@@ -15,6 +15,22 @@ resource "aws_security_group_rule" "rdp" {
   cidr_blocks       = var.allowed_inbound_cidrs
 }
 
+resource "aws_security_group_rule" "http_ingress" {
+  security_group_id = aws_security_group.nomad.id
+  type              = "ingress"
+  from_port         = 80
+  to_port           = 80
+  protocol          = "tcp"
+  cidr_blocks       = var.allowed_inbound_cidrs
+}
+resource "aws_security_group_rule" "nomad_ssh" {
+  security_group_id = aws_security_group.nomad.id
+  type              = "ingress"
+  from_port         = 22
+  to_port           = 22
+  protocol          = "tcp"
+  cidr_blocks       = var.allowed_inbound_cidrs
+}
 resource "aws_security_group_rule" "nomad_ssh" {
   security_group_id = aws_security_group.nomad.id
   type              = "ingress"
