@@ -5,7 +5,7 @@ resource "aws_security_group" "nomad" {
   vpc_id      = var.vpc_id
 }
 
-// Permit access from allowed inbound CIDRs to 3389 for RDP.
+# Permit access from allowed inbound CIDRs to 3389 for RDP.
 resource "aws_security_group_rule" "rdp" {
   security_group_id = aws_security_group.nomad.id
   type              = "ingress"
@@ -14,20 +14,12 @@ resource "aws_security_group_rule" "rdp" {
   protocol          = "tcp"
   cidr_blocks       = var.allowed_inbound_cidrs
 }
-
+# Adding port 80 for hhtp traffic ingress
 resource "aws_security_group_rule" "http_ingress" {
   security_group_id = aws_security_group.nomad.id
   type              = "ingress"
   from_port         = 80
   to_port           = 80
-  protocol          = "tcp"
-  cidr_blocks       = var.allowed_inbound_cidrs
-}
-resource "aws_security_group_rule" "nomad_ssh" {
-  security_group_id = aws_security_group.nomad.id
-  type              = "ingress"
-  from_port         = 22
-  to_port           = 22
   protocol          = "tcp"
   cidr_blocks       = var.allowed_inbound_cidrs
 }
