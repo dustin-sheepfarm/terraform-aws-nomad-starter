@@ -28,7 +28,7 @@ variable "consul_cluster_version" {
 }
 
 variable "nomad_servers" {
-  default     = "5"
+  default     = "3"
   description = "number of Nomad instances"
 }
 
